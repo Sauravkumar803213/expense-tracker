@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Expense</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+<h2>Add Expense</h2>
+<form method="post">
+    Amount:
+    <input type="number" name="amount" required>
+    Date:
+    <input type="date" name="date" required>
+    Description:
+    <input type="text" name="description">
+    Category:
+    <select name="category">
+        {% for c in categories %}
+        <option value="{{ c.category_id }}">{{ c.category_name }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Add Expense</button>
+</form>
+</div>
+
+</body>
+</html>

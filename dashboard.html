@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h2>Expense Dashboard</h2>
+
+<a href="/add">Add Expense</a> |
+<a href="/export/csv">Download CSV</a> |
+<a href="/logout">Logout</a>
+
+<hr>
+
+<canvas id="expenseChart" width="400" height="400"></canvas>
+
+<script>
+const labels = {{ labels | safe }};
+const values = {{ values | safe }};
+
+console.log("Labels:", labels);
+console.log("Values:", values);
+
+if (labels.length === 0) {
+    document.write("<h3>No expenses found</h3>");
+}
+
+new Chart(document.getElementById('expenseChart'), {
+    type: 'pie',
+    data: {
+        labels: labels,
+        datasets: [{
+            data: values,
+            backgroundColor: [
+                '#ff6384',
+                '#36a2eb',
+                '#ffce56',
+                '#4bc0c0',
+                '#9966ff'
+            ]
+        }]
+    }
+});
+</script>
+
+</body>
+</html>
