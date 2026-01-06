@@ -11,7 +11,7 @@ app.secret_key = "expense_secret_key"
 db = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="Sun@803213",
+    password="my_sql_password",
     database="expense_tracker"
 )
 cursor = db.cursor(dictionary=True)
@@ -138,4 +138,5 @@ def logout():
 if __name__ == "__main__":
     app.run(debug=True)
 if __name__ == "__main__":
+
     app.run(host="0.0.0.0", port=5000, debug=True)
